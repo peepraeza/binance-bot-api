@@ -1,5 +1,3 @@
-import ccxt
-from decouple import config
 from services.lineNotify import *
 from binance.client import Client
 from binance.enums import *
@@ -21,7 +19,7 @@ def order(side, symbol, order_type=ORDER_TYPE_MARKET):
         else:
             quantity = calculateQuantity(usdt_amount, symbol)
         # order = client.create_order(symbol=symbol, side=side, type=order_type, quantity=quantity)
-        # sendLineNotification(side, symbol)
+        sendLineNotification(side, symbol)
         print(f"sending order {order_type} - {side} {quantity} {symbol}")
         order = {'test': 1}
         print(order)
